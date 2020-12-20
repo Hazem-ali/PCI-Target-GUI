@@ -3,8 +3,6 @@ from tkinter import ttk
 from tkinter import messagebox
 from tkinter import filedialog
 from datetime import *
-import sqlite3
-import cv2
 import os
 from PIL import ImageTk, Image
 
