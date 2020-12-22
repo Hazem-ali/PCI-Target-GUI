@@ -1,3 +1,7 @@
+`timescale 1ns/1ns
+`include "clock.v"
+`include "buffer.v"
+`include "getAddressAndCMD.v"
 module buffertestbench;
 reg tframe;
 reg[3:0] tCBE;
@@ -9,6 +13,7 @@ wire [31:0] in_out;
 wire tTRDY;
 
 
+
 parameter READ = 1;
 parameter WRITE = 0;
 
@@ -17,6 +22,9 @@ assign in_out = (operation == WRITE) ? tAD : 32'bZ;
 
 initial 
 begin
+    $dumpfile("t_buffer.vcd");
+    $dumpvars(0, buffertestbench);
+
 tframe = 1;
 tIRDY = 1;
 
@@ -65,6 +73,7 @@ tCBE = 4'b0110;
 operation = READ;
 
 
+$finish;
 end
 
 

@@ -21,7 +21,6 @@ reg[31:0] memory[0:1023]; //Internal Memory for storage;
 wire[3:0] operation; //incoming operation from CBE "Command"
 
 
-
 // ##### process #####
 getCMD get1(.frame(frame),.AD(AD),.CBE(CBE),.CMD(operation)); //get Command and put it in operation
 
@@ -30,7 +29,6 @@ always@(negedge clk) begin
 
 if(writeCount==4) begin 
  TRDY = 1;
- tempCount=0; 
 end
 if(writeCount==0)begin TRDY=0; end
 

@@ -7,9 +7,20 @@ from time import sleep
 def Delay(number):
     return '#' + str(number) + '\n'
 
-def txtgen1():
+def Read_Gen():
     # you'll make one like this as read & write operations
 
+    txt1 = '''s
+MOFTY
+X
+Y
+Z
+T
+f'''
+    return txt1
+
+def Write_Gen():
+    
     txt1 = '''s
 MOFTY
 X
@@ -42,10 +53,13 @@ def Make_Operations(Inputfile, Outputfile, Operations):
                 # writing data (new or existing)
                 target.writelines(line + '\n')
 
-
+def Exec_Simulation():
+    os.system('cmd /c "iverilog -o t_buffer.vvp t_buffer.v & vvp -n t_buffer.vvp & gtkwave t_buffer.vcd"')
 
 
 
 # Useful tools
 # sleep(2)
 # os.system("copy.txt") ## writing a terminal command
+
+# add included v files and timescale, then add $finish at end of tb file
