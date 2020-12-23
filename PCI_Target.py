@@ -258,7 +258,7 @@ for txt, val in choices:
 Words_Num = Create_TextBox(root, "Words Number", 575, 300)
 
 databutton = Create_Button(
-    root, "Write Data Here", WriteData, 775, 305, 5, "bold 12")
+    root, "Write Data Here", WriteData, 575, 350, 5, "bold 12")
 databutton.config(fg="white", bg=background_color)
 
 # BE = Create_TextBox(root, "BE Code", 575, 300)
