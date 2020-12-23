@@ -4,8 +4,7 @@
 `include "getAddressAndCMD.v"
 `include "buffer.v"
 
-
-module t_buffer1;
+module t_buffer2;
 reg tframe;
 reg[3:0] tCBE;
 reg tIRDY;
@@ -26,66 +25,48 @@ assign in_out = (operation==WRITE)? tAD:32'bZ;
 
 initial 
 begin
-$dumpfile("testcase1.vcd");
-$dumpvars(0, t_buffer1);
-
-
+    $dumpfile("testcase1.vcd");
+    $dumpvars(0, t_buffer2);
 tframe = 1;
 tIRDY = 1;
-#10 
+#10
 
 //flag
 
-
-// tframe = 1;
-// tIRDY = 1;
-
-// #10 
-// operation=WRITE;
+// // Transaction Begin
 // tframe = 0;
-
+// operation=WRITE;
 // tCBE = 4'b0111;
 // tAD = 32'd1000;
-
 // #10
 // tIRDY=0;
 // #10
 
-
+// // Write data
 // tCBE=4'b0101;
 // tAD=32'hffffffff;
 // #10
 
-// tAD=32'd133;
-// #10
-
 // tCBE=4'b1111;
-// tAD=32'd176;
+// tAD=32'haaaaaaaa;
 // #10
 
-// tAD=32'haa;
-// #30
-
-// tAD=32'hbb;
-// #10
-
-// tAD=32'hcc;
-// #10
-
-// tAD=32'hdd;
-// #10
-
+// // Transaction end
 // tframe = 1;
-// #10
 // tIRDY = 1;
-// #10
+// #10 
 
+// operation=WRITE;
 // tframe = 0;
 // tCBE = 4'b0110;
 // tAD = 32'd1000;
 // #10
-// tIRDY = 0;
+// tIRDY=0;
+// #10
+
 // operation=READ;
+// tCBE = 4'b0110;
+// #40
 
 $finish;
 end

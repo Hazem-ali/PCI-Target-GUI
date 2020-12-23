@@ -5,7 +5,7 @@
 `include "buffer.v"
 
 
-module t_buffer1;
+module t_buffertest;
 reg tframe;
 reg[3:0] tCBE;
 reg tIRDY;
@@ -27,14 +27,83 @@ assign in_out = (operation==WRITE)? tAD:32'bZ;
 initial 
 begin
 $dumpfile("testcase1.vcd");
-$dumpvars(0, t_buffer1);
+$dumpvars(0, t_buffertest);
 
 
 tframe = 1;
 tIRDY = 1;
 #10 
 
-//flag
+
+// Frame Start
+tframe = 0;
+
+
+operation=WRITE;
+tCBE = 4'b0111;
+tAD = 32'd1000;
+#10
+tIRDY=0;
+#10                
+
+
+// Operation Write
+tCBE = 4'b0101;
+tAD = 32'haaaaaaaa;
+#10
+
+
+
+// Operation Write
+tCBE = 4'b1111;
+tAD = 32'hbbbbbbbb;
+#10
+
+
+
+// Operation Write
+tCBE = 4'b0101;
+tAD = 32'haaaacccc;
+#10
+
+
+
+// Operation Write
+tCBE = 4'b1100;
+tAD = 32'hdddddddd;
+#10
+
+
+
+// Frame End
+tframe = 1;
+#10 
+tIRDY = 1;
+#10 
+    
+
+
+// Frame Start
+tframe = 0;
+
+
+// Operation Read
+tCBE = 4'b0110;
+tAD = 32'd1000;
+#10
+tIRDY = 0;
+operation=READ;
+#80
+
+
+// Frame End
+tframe = 1;
+#10 
+tIRDY = 1;
+#10 
+    
+
+
 
 
 // tframe = 1;
@@ -98,3 +167,4 @@ buffer B1(clk,tframe,tCBE,in_out,tIRDY,tTRDY,tDEVSEL);
 
 
 endmodule
+

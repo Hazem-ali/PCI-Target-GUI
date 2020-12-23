@@ -1,0 +1,160 @@
+# Reading C:/Modeltech_pe_edu_10.4a/tcl/vsim/pref.tcl
+# OpenFile D:/Hazem/Code_Achievements/PCI_Target_Simulator/testcase1.v
+vlog -reportprogress 300 -work work D:/Hazem/Code_Achievements/PCI_Target_Simulator/testcase1.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 09:33:43 on Dec 23,2020
+# vlog -reportprogress 300 -work work D:/Hazem/Code_Achievements/PCI_Target_Simulator/testcase1.v 
+# ** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+# 
+# End time: 09:33:43 on Dec 23,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work D:/Hazem/Code_Achievements/PCI_Target_Simulator/testcase1.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 09:33:43 on Dec 23,2020
+# vlog -reportprogress 300 -work work D:/Hazem/Code_Achievements/PCI_Target_Simulator/testcase1.v 
+# ** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+# 
+# End time: 09:33:43 on Dec 23,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work C:/Modeltech_pe_edu_10.4a/examples/testcase1.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 09:35:24 on Dec 23,2020
+# vlog -reportprogress 300 -work work C:/Modeltech_pe_edu_10.4a/examples/testcase1.v 
+# ** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+# 
+# End time: 09:35:24 on Dec 23,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vlog -reportprogress 300 -work work C:/Modeltech_pe_edu_10.4a/examples/work/testcase1.v
+# Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+# Start time: 09:36:24 on Dec 23,2020
+# vlog -reportprogress 300 -work work C:/Modeltech_pe_edu_10.4a/examples/work/testcase1.v 
+# ** Error: (vlog-66) Execution of vlib failed. Please check the error log for more details.
+# 
+# End time: 09:36:24 on Dec 23,2020, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Loading project CO
+# reading C:/Modeltech_pe_edu_10.4a/win32pe_edu/../modelsim.ini
+# Loading project co
+# Compile of buffer.v was successful.
+# Compile of clock.v was successful.
+# Compile of getAddressAndCMD.v was successful.
+# Compile of t_buffer.v was successful.
+# Compile of t_buffer2.v was successful.
+# Compile of tempCodeRunnerFile.v failed with 2 errors.
+# Compile of testcase1.v was successful.
+# Compile of verifyAddress.v was successful.
+# 8 compiles, 1 failed with 2 errors.
+vsim work.t_buffer1
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -gui D:\Hazem\Code_Achievements\PCI_Target_Simulator\testcase1.v 
+# Start time: 09:38:45 on Dec 23,2020
+# Loading work.t_buffer1
+# Loading work.clockGen
+# ** Error (suppressible): (vsim-3009) [TSCALE] - Module 't_buffer1' does not have a timeunit/timeprecision specification in effect, but other modules do.
+#    Time: 0 ns  Iteration: 0  Instance: /t_buffer1/c1 File: clock.v
+# Loading work.buffer
+# Loading work.getCMD
+# Loading work.verifyAddress
+# Error loading design
+vsim work.t_buffer2
+# vsim 
+# Start time: 09:38:49 on Dec 23,2020
+# Loading work.t_buffer2
+# Loading work.clockGen
+# Loading work.buffer
+# Loading work.getCMD
+# Loading work.verifyAddress
+add wave -position end  sim:/t_buffer2/tframe
+add wave -position end  sim:/t_buffer2/tTRDY
+add wave -position end  sim:/t_buffer2/tIRDY
+add wave -position end  sim:/t_buffer2/tDEVSEL
+add wave -position end  sim:/t_buffer2/tCBE
+add wave -position end  sim:/t_buffer2/tAD
+add wave -position end  sim:/t_buffer2/operation
+add wave -position end  sim:/t_buffer2/in_out
+add wave -position end  sim:/t_buffer2/clk
+run
+run
+# ** Note: $finish    : C:/Modeltech_pe_edu_10.4a/examples/testcase1.v(145)
+#    Time: 170 ns  Iteration: 0  Instance: /t_buffer2
+# 1
+# Break in Module t_buffer2 at C:/Modeltech_pe_edu_10.4a/examples/testcase1.v line 145
+quit -sim
+# Compile of testcase1.v was successful.
+vsim work.t_buffer2
+# vsim 
+# Start time: 09:43:37 on Dec 23,2020
+# Loading work.t_buffer2
+# Loading work.clockGen
+# Loading work.buffer
+# Loading work.getCMD
+# Loading work.verifyAddress
+add wave -position end  sim:/t_buffer2/tframe
+add wave -position end  sim:/t_buffer2/tTRDY
+add wave -position end  sim:/t_buffer2/tIRDY
+add wave -position end  sim:/t_buffer2/tDEVSEL
+add wave -position end  sim:/t_buffer2/tCBE
+add wave -position end  sim:/t_buffer2/tAD
+add wave -position end  sim:/t_buffer2/operation
+add wave -position end  sim:/t_buffer2/in_out
+add wave -position end  sim:/t_buffer2/clk
+run
+run
+run
+# ** Note: $finish    : C:/Modeltech_pe_edu_10.4a/examples/testcase1.v(144)
+#    Time: 280 ns  Iteration: 0  Instance: /t_buffer2
+# 1
+# Break in Module t_buffer2 at C:/Modeltech_pe_edu_10.4a/examples/testcase1.v line 144
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+quit -sim
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v failed with 4 errors.
+# Compile of testcase1.v was successful.
+vsim work.t_buffertest
+# vsim 
+# Start time: 09:48:29 on Dec 23,2020
+# Loading work.t_buffertest
+# Loading work.clockGen
+# Loading work.buffer
+# Loading work.getCMD
+# Loading work.verifyAddress
+add wave -position end  sim:/t_buffertest/tframe
+add wave -position end  sim:/t_buffertest/tTRDY
+add wave -position end  sim:/t_buffertest/tIRDY
+add wave -position end  sim:/t_buffertest/tDEVSEL
+add wave -position end  sim:/t_buffertest/tCBE
+add wave -position end  sim:/t_buffertest/tAD
+add wave -position end  sim:/t_buffertest/operation
+add wave -position end  sim:/t_buffertest/in_out
+add wave -position end  sim:/t_buffertest/clk
+run
+run
+run
+run
+run
+run
+# End time: 09:54:25 on Dec 23,2020, Elapsed time: 0:05:56
+# Errors: 0, Warnings: 0
