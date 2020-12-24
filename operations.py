@@ -13,9 +13,9 @@ def Read_Gen():
 tCBE = 4'b0110;
 tAD = 32'd1000;
 #10
-tIRDY = 0;
 operation=READ;
-#80
+tIRDY = 0;
+#40
 """
     return Read_Text
 

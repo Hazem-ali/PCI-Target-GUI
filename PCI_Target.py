@@ -145,7 +145,9 @@ def TransactionStart():
     # Write Start Frame codes
     T_Start = '''
 // Frame Start
+
 tframe = 0;
+
 '''
     TestBench.append(T_Start)
     return
@@ -155,12 +157,22 @@ def TransactionEnd():
     # Write End Frame codes
 
     # If Read --> Execute Read Function
-
+    T_End = ""
     if user_cmd.get() == "Read":
         TestBench.append(Read_Gen())
+        T_End = """
+// Frame End
+
+tframe = 1;
+#10 
+tIRDY = 1;
+#10 
+    
+"""
 
     # If Write --> Execute Write Function (use Operations)
     if user_cmd.get() == "Write":
+        
         # Initialize Data Write
         Write_init = """
 operation=WRITE;
@@ -170,21 +182,31 @@ tAD = 32'd1000;
 tIRDY=0;
 #10                
 """
+        T_End = """
+tCBE = 32'bxxxx;
 
-        TestBench.append(Write_init)
-        # Operations (Data), entries_BE, Base
-        for i in range(len(Operations)):
-            TestBench.append(Write_Gen(Base.get(), Operations[i], BE_values[i]))
-            
-
-    T_End = """
-// Frame End
-tframe = 1;
-#10 
 tIRDY = 1;
 #10 
     
 """
+        
+
+        TestBench.append(Write_init)
+        # Operations (Data), entries_BE, Base
+        for i in range(len(Operations)):
+            if i == len(Operations) - 1:
+                TestBench.append("\ntframe = 1; \n")
+            TestBench.append(Write_Gen(Base.get(), Operations[i], BE_values[i]))
+            
+#     T_End = """
+# // Frame End
+# tframe = 1;
+# #10 
+# tIRDY = 1;
+# #10 
+    
+# """
+    
     TestBench.append(T_End)
     return
 
@@ -204,7 +226,7 @@ def Run():
             return
 
     # Copy Data from operations into .v file then running it
-    Make_Operations("t_buffer.v", "testcase1.v", TestBench)
+    Make_Operations("tbuffer1_final.v", "testcase1.v", TestBench)
     Exec_Simulation("testcase1")
     # Operations.clear()
 
@@ -260,8 +282,6 @@ Words_Num = Create_TextBox(root, "Words Number", 575, 300)
 databutton = Create_Button(
     root, "Write Data Here", WriteData, 575, 350, 5, "bold 12")
 databutton.config(fg="white", bg=background_color)
-
-# BE = Create_TextBox(root, "BE Code", 575, 300)
 
 ################################
 Start = Create_Button(root, "Start Transaction",

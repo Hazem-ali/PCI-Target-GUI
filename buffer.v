@@ -25,11 +25,11 @@ wire[3:0] operation; //incoming operation from CBE "Command"
 
 // ##### process #####
 getCMD get1(frame,CBE,operation);
-wire hhh;
-verifyAddress verify1(.clk(clk),.frame(frame),.AD(AD),.DEVSEL(DEVSEL),.TRDY(hhh));
+wire test;
+verifyAddress verify1(.clk(clk),.frame(frame),.AD(AD),.DEVSEL(DEVSEL),.TRDY(test));
 
-always@(hhh)begin
-TRDY=hhh;
+always@(test)begin
+TRDY=test;
 end
 
 // Tracking writeCount to rise TRDY ((( BUZY )))
@@ -44,7 +44,7 @@ if(writeCount==0&&TRDY==1&&DEVSEL==0)begin TRDY=0; end
 end
 
 // Transfer Data from buffer when it is fill  ((( TRANSFERING )))
-always@(posedge clk) begin 
+always@(negedge clk) begin 
 
 if(TRDY==1&&writeCount==4) begin 
 memory[memCount]<=BUFFER[0];
@@ -60,7 +60,7 @@ end
 
 
 // Tracking IRDY To making operations
-always@(posedge clk) begin 
+always@(negedge clk or DEVSEL) begin 
 
 // Check IRDY To do a Operation
 if(IRDY==0&&TRDY==0) begin 

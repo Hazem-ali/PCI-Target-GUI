@@ -9,7 +9,7 @@ input wire[31:0] AD;
 output reg DEVSEL;
 output reg TRDY;
 reg [2:0] counter=0;
-reg [2:0] elCounterElTany=0;
+reg [2:0] counter2=0;
 reg[31:0] recievedAddress;
 
 
@@ -18,15 +18,16 @@ reg[31:0] recievedAddress;
 always@(negedge clk)begin
 
 if(frame==1)begin 
-if(elCounterElTany<=3)begin 
-elCounterElTany=elCounterElTany+1;
+if(counter2<=3)begin 
+counter2=counter2+1;
 end
 
 
-if(elCounterElTany==3)begin
+if(counter2==3)begin
 DEVSEL = 1 ; //Active LOW
 TRDY = 1; //Active LOW
 counter=0;
+counter2=0;
 end
 
 end
